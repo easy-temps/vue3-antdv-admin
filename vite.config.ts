@@ -12,7 +12,9 @@ export default defineConfig({
     vueJsx(),
     visualizer(),
     Components({
-      resolvers: [AntDesignVueResolver()]
+      dts: true,
+      resolvers: [AntDesignVueResolver()],
+      types: []
     }),
     legacy({
       targets: ['defaults', 'not IE 11']
