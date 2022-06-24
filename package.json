@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint --fix --ext .js,jsx,vue,ts,tsx src/"
+    "lint": "eslint --fix --ext .js,jsx,vue,ts,tsx src/",
+    "plop": "plop"
   },
   "dependencies": {
     "ant-design-vue": "^3.2.5",
@@ -30,6 +31,7 @@
     "eslint-plugin-vue": "^9.1.1",
     "husky": "^8.0.0",
     "less": "^4.1.2",
+    "plop": "^3.1.1",
     "prettier": "^2.7.1",
     "prettier-plugin-style-order": "^0.2.2",
     "pretty-quick": "^3.1.3",

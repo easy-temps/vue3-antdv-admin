@@ -28,6 +28,8 @@ module.exports = {
     /* typescript */
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    /* other */
+    'vue/multi-word-component-names': 'off',
   },
   overrides: [
     {
