@@ -1,28 +1,48 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { visualizer } from 'rollup-plugin-visualizer'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import path from 'path'
 
-export default defineConfig({
-  plugins: [
-    vue(),
-    vueJsx(),
-    visualizer(),
-    Components({
-      dts: true,
-      resolvers: [AntDesignVueResolver()],
-      types: []
-    }),
-    legacy({
-      targets: ['defaults', 'not IE 11']
-    }),
-  ],
+export default defineConfig(({ mode }) => {
+  const root = process.cwd()
+  const env = loadEnv(mode, root)
 
-  server: {
-    host: true,
-    port: 3066
+  return {
+    base: env.VITE_APP_PUBLIC_PATH,
+
+    define: {
+      'process.env.VUE_APP_PUBLIC_PATH': JSON.stringify(env.VITE_APP_PUBLIC_PATH)
+    },
+
+    plugins: [
+      vue(),
+      vueJsx(),
+      visualizer(),
+      Components({
+        dts: true,
+        resolvers: [AntDesignVueResolver()],
+        types: []
+      }),
+      legacy({
+        targets: ['defaults', 'not IE 11']
+      }),
+    ],
+
+    resolve: {
+      alias: {
+        '~@': path.join(__dirname, './src'),
+        '@': path.join(__dirname, './src'),
+        '~': path.join(__dirname, './src/assets')
+      },
+    },
+
+    server: {
+      host: true,
+      port: 3066
+    }
   }
 })

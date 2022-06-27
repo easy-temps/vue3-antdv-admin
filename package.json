@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
+    "preview": "vite build --mode staging",
     "lint": "eslint --fix --ext .js,jsx,vue,ts,tsx src/",
     "plop": "plop"
   },
@@ -26,6 +26,7 @@
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.18.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^9.1.1",
