@@ -40,6 +40,19 @@ export default defineConfig(({ mode }) => {
       },
     },
 
+    css: {
+      preprocessorOptions: {
+        less: {
+          modifyVars: {
+            hack: 'true; @import "~/styles/variables.less";',
+            'root-entry-name': 'variable',
+          },
+          // DO NOT REMOVE THIS LINE
+          javascriptEnabled: true,
+        },
+      },
+    },
+
     server: {
       host: true,
       port: 3066
