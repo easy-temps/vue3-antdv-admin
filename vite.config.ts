@@ -1,3 +1,4 @@
+import path from 'path'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
@@ -5,7 +6,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { visualizer } from 'rollup-plugin-visualizer'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-import path from 'path'
 
 export default defineConfig(({ mode }) => {
   const root = process.cwd()
@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
     base: env.VITE_APP_PUBLIC_PATH,
 
     define: {
-      'process.env.VUE_APP_PUBLIC_PATH': JSON.stringify(env.VITE_APP_PUBLIC_PATH)
+      'process.env.VUE_APP_PUBLIC_PATH': JSON.stringify(env.VITE_APP_PUBLIC_PATH),
     },
 
     plugins: [
@@ -25,10 +25,10 @@ export default defineConfig(({ mode }) => {
       Components({
         dts: true,
         resolvers: [AntDesignVueResolver()],
-        types: []
+        types: [],
       }),
       legacy({
-        targets: ['defaults', 'not IE 11']
+        targets: ['defaults', 'not IE 11'],
       }),
     ],
 
@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         '~@': path.join(__dirname, './src'),
         '@': path.join(__dirname, './src'),
-        '~': path.join(__dirname, './src/assets')
+        '~': path.join(__dirname, './src/assets'),
       },
     },
 
@@ -44,7 +44,7 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {
         less: {
           modifyVars: {
-            hack: 'true; @import "~/styles/variables.less";',
+            'hack': 'true; @import "~/styles/variables.less";',
             'root-entry-name': 'variable',
           },
           // DO NOT REMOVE THIS LINE
@@ -55,7 +55,7 @@ export default defineConfig(({ mode }) => {
 
     server: {
       host: true,
-      port: 3066
-    }
+      port: 3066,
+    },
   }
 })

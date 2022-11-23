@@ -3,11 +3,12 @@ const commitRE = /^(revert: )?(feat|fix|docs|dx|style|refactor|perf|test|workflo
 const mergeRe = /^(Merge pull request|Merge branch)/
 
 if (!commitRE.test(msg)) {
-  if(!mergeRe.test(msg)){
+  if (!mergeRe.test(msg)) {
     console.log('git commit unpass')
-    console.error(`git commit error, needs title(scope): desc`)
+    console.error('git commit error, needs title(scope): desc')
     process.exit(1)
   }
-} else {
+}
+else {
   console.log('git commit pass')
 }

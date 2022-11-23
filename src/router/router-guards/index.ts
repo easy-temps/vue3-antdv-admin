@@ -1,17 +1,16 @@
+import { allowList, loginRoutePath } from '../define-meta'
 import router from '@/router'
 import localStorage from '@/utils/local-storage'
 import { STORAGE_TOKEN_KEY } from '@/store/mutation-type'
-import { allowList, loginRoutePath } from '../define-meta'
 
-router.beforeEach(async to => {
+router.beforeEach(async (to) => {
   const userToken = localStorage.get(STORAGE_TOKEN_KEY)
 
   // token check
   if (!userToken) {
     // 白名单路由列表检查
-    if (allowList.includes(to.name as string)) {
-      return true;
-    }
+    if (allowList.includes(to.name as string))
+      return true
 
     if (to.fullPath !== loginRoutePath) {
       // 未登录，进入到登录页

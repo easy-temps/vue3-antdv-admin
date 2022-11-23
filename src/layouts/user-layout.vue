@@ -1,29 +1,5 @@
-<template>
-  <div id="userLayout" :class="['user-layout-wrapper']">
-    <div class="container">
-      <div class="top">
-        <div class="header">
-          <a href="/">
-            <img src="~@/assets/logo.png" class="logo" alt="logo" />
-            <span class="title">Vue3 Antdv Admin</span>
-          </a>
-        </div>
-        <div class="desc">🔥🔥🔥 基于Vue3、Vite、Pinia、TypeScript、Vue-Router4、Ant-Design-Vue 构建的中后台管理系统</div>
-      </div>
-
-      <router-view />
-
-      <div class="footer">
-        <div class="copyright">Copyright &copy; 2022 💖
-          <a href="https://github.com/CharleeWa">CharleeWa</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import {onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 
 onMounted(() => {
   document.body.classList.add('userLayout')
@@ -33,6 +9,33 @@ onUnmounted(() => {
   document.body.classList.remove('userLayout')
 })
 </script>
+
+<template>
+  <div id="userLayout" class="user-layout-wrapper">
+    <div class="container">
+      <div class="top">
+        <div class="header">
+          <a href="/">
+            <img src="~@/assets/logo.png" class="logo" alt="logo">
+            <span class="title">Vue3 Antdv Admin</span>
+          </a>
+        </div>
+        <div class="desc">
+          🔥🔥🔥 基于Vue3、Vite、Pinia、TypeScript、Vue-Router4、Ant-Design-Vue 构建的中后台管理系统
+        </div>
+      </div>
+
+      <router-view />
+
+      <div class="footer">
+        <div class="copyright">
+          Copyright &copy; 2022 💖
+          <a href="https://github.com/CharleeWa">CharleeWa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style lang="less" scoped>
 #userLayout.user-layout-wrapper {

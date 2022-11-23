@@ -1,5 +1,5 @@
 import type { Component } from 'vue'
-import { createRouter, createWebHistory } from "vue-router"
+import { createRouter, createWebHistory } from 'vue-router'
 import type { MenuDataItem } from './typing'
 import UserLayout from '@/layouts/user-layout.vue'
 
@@ -7,8 +7,8 @@ export const routes: MenuDataItem[] = [
   {
     name: 'index',
     path: '/',
-    component: (): Component => import('@/views/dashboard/workplace/index.vue')
-  }
+    component: (): Component => import('@/views/dashboard/workplace/index.vue'),
+  },
 ]
 
 export const staticRoutes: MenuDataItem[] = [
@@ -24,8 +24,8 @@ export const staticRoutes: MenuDataItem[] = [
         meta: { title: 'pages.login.accountLogin.tab' },
         component: () => import('@/views/user/login.vue'),
       },
-    ]
-  }
+    ],
+  },
 ]
 
 const router = createRouter({
@@ -33,7 +33,7 @@ const router = createRouter({
   routes: staticRoutes,
   scrollBehavior: () => {
     return { top: 0 }
-  }
+  },
 })
 
 export default router
